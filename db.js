@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose');   // here monogse access
 
 // Define the MongoDB connection URL
 const mongoURL = 'mongodb://127.0.0.1:27017/hotels'
