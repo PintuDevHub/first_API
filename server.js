@@ -21,7 +21,7 @@ app.use('/person', personroutes)
 app.use('/menu', menuroutes)
 app.listen(3000, ()=>{
     console.log('listening on port 3000');
-    
+     
 })
 
 
