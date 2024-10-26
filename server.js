@@ -2,7 +2,7 @@ const express = require('express')
 const app = express();
 const db = require('./db');
 require('dotenv').config();
-const MenuIteam = require('../nodes/modules/MenuIteam');
+const MenuIteam = require('./modules/MenuIteam');
 const Person = require('../nodes/modules/person');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
