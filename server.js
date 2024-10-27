@@ -9,6 +9,13 @@ app.use(bodyParser.json());
 const PORT = process.env.PORT || 3000;
 
 
+// here middleware function 
+const logRequest = (req, res, next )=>{
+    console.log(`${new Date().toLocaleString()} Request Made to : ${req.originalUrl}`);
+    next() // Move on the next phase     
+}
+
+app.use(logRequest);
 
 app.get('/', function (req,res){
     res.send('Welcome to my hotel.. Her e users !')
