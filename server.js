@@ -3,9 +3,11 @@ const app = express();
 const db = require('./db');
 require('dotenv').config();
 const MenuIteam = require('./modules/MenuIteam');
+const passport = require('./auth');
 const Person = require('./modules/person');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
+
 const PORT = process.env.PORT || 3000;
 
 
@@ -15,7 +17,7 @@ const logRequest = (req, res, next )=>{
     next() // Move on the next phase     
 }
 
-app.use(logRequest);
+// app.use(logRequest);
 
 app.get('/', function (req,res){
     res.send('Welcome to my hotel.. Her e users !')
@@ -23,12 +25,16 @@ app.get('/', function (req,res){
 })
 
 
+app.use(passport.initialize());
+const localAuthMiddleware = passport.authenticate('local', {session: false})
+
+
 // Import the router files
 const personroutes = require('./routes/personroutes');
 const menuroutes = require('./routes/menuroutes');
 
-app.use('/person', personroutes)
-app.use('/menu', menuroutes)
+app.use('/person', localAuthMiddleware , personroutes)
+app.use('/menu' , menuroutes) // here not working  localAuthMiddleware  *************  solve krna hai 
 
 app.listen(PORT, ()=>{
     console.log('listening on port 3000');

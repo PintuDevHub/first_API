@@ -27,7 +27,15 @@ const menuIteamSchema = new mongoose.Schema({
         type: Number,
         default:0
     },
+    username:{
+        type: String,
+        required: true,
+    },
+    password:{
+        type: String,
+        required: true,
+    }
 })
 
-const MenuIteam = mongoose.model('MenuItem',menuIteamSchema);
+const MenuIteam = mongoose.model('MenuIteam',menuIteamSchema);
 module.exports = MenuIteam;
