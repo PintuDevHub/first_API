@@ -2,8 +2,8 @@ const express = require('express')
 const app = express();
 const db = require('./db');
 require('dotenv').config();
-const MenuIteam = require('./modules/MenuIteam');
-const Person = require('./modules/person');
+// const MenuIteam = require('./modules/MenuIteam');
+// const Person = require('./modules/person');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 const PORT = process.env.PORT || 3000;
